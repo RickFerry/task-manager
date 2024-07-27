@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:r="http://richfaces.org/rich">
+<h:head>
+    <title>Project List</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h:dataTable value="#{projectController.projects}" var="project">
+            <h:column>
+                <f:facet name="header">Title</f:facet>
+                #{project.title}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Description</f:facet>
+                #{project.description}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Actions</f:facet>
+                <h:commandLink value="Edit" action="#{projectController.editProjectForm(project.id)}"/>
+                <h:commandLink value="Delete" action="#{projectController.deleteProject(project.id)}"/>
+            </h:column>
+        </h:dataTable>
+        <h:commandButton value="Create Project" action="/projects/create"/>
+    </h:form>
+</h:body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:r="http://richfaces.org/rich">
+<h:head>
+    <title>Edit Task</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="title" value="Title:" />
+            <h:inputText id="title" value="#{taskController.task.title}" required="true" />
+
+            <h:outputLabel for="description" value="Description:" />
+            <h:inputText id="description" value="#{taskController.task.description}" />
+
+            <h:outputLabel for="priority" value="Priority:" />
+            <h:selectOneMenu id="priority" value="#{taskController.task.priority}">
+                <f:selectItem itemValue="High" itemLabel="High"/>
+                <f:selectItem itemValue="Medium" itemLabel="Medium"/>
+                <f:selectItem itemValue="Low" itemLabel="Low"/>
+            </h:selectOneMenu>
+
+            <h:outputLabel for="estimatedHours" value="Estimated Hours:" />
+            <h:inputText id="estimatedHours" value="#{taskController.task.estimatedHours}" />
+        </h:panelGrid>
+        <h:commandButton value="Save" action="#{taskController.editTask()}" />
+        <h:commandButton value="Cancel" action="list.xhtml" />
+    </h:form>
+</h:body>
+</html>

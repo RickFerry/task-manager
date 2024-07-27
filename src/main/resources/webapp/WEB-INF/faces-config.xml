@@ -1,0 +1,30 @@
+<!-- src/main/resources/META-INF/faces-config.xml -->
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                                  http://xmlns.jcp.org/xml/ns/javaee/faces-config_2_2.xsd"
+              version="2.2">
+
+    <!-- Configure managed beans -->
+    <managed-bean>
+        <managed-bean-name>projectController</managed-bean-name>
+        <managed-bean-class>com.example.project.controller.ProjectController</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>taskController</managed-bean-name>
+        <managed-bean-class>com.example.project.controller.TaskController</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+
+    <!-- View configuration (optional, if not using the default) -->
+    <navigation-rule>
+        <from-view-id>/login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+</faces-config>
